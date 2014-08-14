@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title>Talemtum</title>
+	</head>
+	<body>
+		<h1>Share your skills motherfucker</h1>
+		<table>
+		<% @projects.each do |project| %>
+			<tr>
+      	<td><%=project.name %></td>
+      	<td><%=project.description %></td>
+      </tr>
+		<% end %>
+		</table>
+	</body>
+</html>
