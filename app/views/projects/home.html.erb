@@ -10,12 +10,13 @@
 		<% @projects.each do |project| %>
 			<tr>
       	<td><%=project.name %></td>
-      	<!-- <td><%=project.description %></td> -->
+      	<td><button><%= link_to 'Edit project', edit_project_path(project) %></button></td>
+      	<td><button><%= link_to 'Delete project', project_path(project), method: :delete, data: { confirm: 'Are you sure?'} %></button></td>
       </tr>
 		<% end %>
 		</table>
 		<button id="new-project">
-			<%= link_to "Create a new project", new_project_path, method: 'get' %>
+			<%= link_to "Create a new project", new_project_path%>
 		</button>
 	</body>
 </html>
