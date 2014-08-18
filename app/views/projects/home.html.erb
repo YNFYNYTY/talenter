@@ -1,3 +1,5 @@
+<script type='text/javascript'></script>
+
 <html>
 	<head>
 		<title>Talemtum</title>
@@ -8,9 +10,12 @@
 		<% @projects.each do |project| %>
 			<tr>
       	<td><%=project.name %></td>
-      	<td><%=project.description %></td>
+      	<!-- <td><%=project.description %></td> -->
       </tr>
 		<% end %>
 		</table>
+		<button id="new-project">
+			<%= link_to "Create a new project", new_project_path, method: 'get' %>
+		</button>
 	</body>
 </html>
