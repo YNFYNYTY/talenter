@@ -22,3 +22,4 @@ Skill.create(name: 'Lumberjack')
 Skill.create(name: 'Porn Actress')
 Skill.create(name: 'Engineer')
 Skill.create(name: 'Combar Pilot')
+
