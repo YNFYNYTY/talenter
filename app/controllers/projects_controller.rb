@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
 
 	def show
 		@project = Project.find(params[:id])
-		render
+		render 'show'
 	end
 
 	def new
@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
 private
 
 	def project_params
-      params[:project].permit(:name, :description)
+      params[:project].permit(:name, :description, :long_description)
  	end
 
 end
