@@ -1,22 +1,23 @@
-<script type='text/javascript'></script>
 
-<html>
-	<head>
-		<title>Talemtum</title>
-	</head>
-	<body>
-		<h1>Share your skills motherfucker</h1>
-		<table>
+<h1>Share your skills motherfucker</h1>
+	<div class="table-responsive">
+		<table class='table table-hover'>
+			<div class='row'>
+				<div class='col-md-3'>NAME</div>
+				<div class='col-md-3'>DESCRIPTION</div>
+			</div>
 		<% @projects.each do |project| %>
-			<tr>
-      	<td><%=project.name %></td>
-      	<td><button><%= link_to 'Edit project', edit_project_path(project) %></button></td>
-      	<td><button><%= link_to 'Delete project', project_path(project), method: :delete, data: { confirm: 'Are you sure?'} %></button></td>
-      </tr>
+			<div class='row'>
+      	<div class= 'col-md-3'><%= project.name %></div>
+      	<div class='col-lg-3'><%= project.description %></div>
+      	<div class='col-md-2'><%= link_to 'Edit project', edit_project_path(project) %></div>
+      	<div class='col-md-2'><%= link_to 'Delete project', project_path(project), method: :delete, data: { confirm: 'Are you sure?'} %></div>
+      </div>
 		<% end %>
 		</table>
-		<button id="new-project">
-			<%= link_to "Create a new project", new_project_path%>
-		</button>
-	</body>
-</html>
+	</div>
+<button id="new-project">
+	<%= link_to "Create a new project", new_project_path%>
+</button>
+
+
