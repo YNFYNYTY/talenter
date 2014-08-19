@@ -23,4 +23,8 @@
 	<%= link_to "Create a new project", new_project_path%>
 </button>
 
+<% @skills.each do |skill|  %>
+<%= skill.name %>
+<% end %>
+
 
