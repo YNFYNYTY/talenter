@@ -1,18 +1,40 @@
 <h1>Create new project asshole</h1>
 <table class='table table-hover'>
 	<div class = 'row'>
-		<%= form_for @project do |f| %>
+		<%= form_for [@project,] do |f| %>
 		<div class = 'row'>
-		  <div class= 'col-md-4'></div><div class= 'col-md-3'><%= f.label :name %> <%= f.text_field :name %><br/></div></div>
-		  <div class= 'col-md-4'></div><div class= 'row'><div class= 'col-md-3'><%= f.label :description %> <%= f.text_area :description %></div></div>
-		  <div class= 'col-md-4'></div><div class = 'row'><div class= 'col-md-3'><%= f.label :long_description %> <%= f.text_area :long_description %></div></div>
-			<div class= 'col-md-4'></div><div class= 'col-md-3'>SKILLS<%= f.select :skills, Skill.all.map{ |skill| [skill.name, skill.id] } %></div></div>
+		  <div class= 'col-md-4'></div>
+		  <div class= 'col-md-3'><%= f.label :name %> <%= f.text_field :name %><br/>
+		  </div>
+		</div>
+		  <div class= 'col-md-4'></div>
+		  <div class= 'row'>
+		  	<div class= 'col-md-3'><%= f.label :description %> <%= f.text_area :description %></div>
+		  </div>
+		  <div class= 'col-md-4'></div>
+		  <div class = 'row'>
+		  	<div class= 'col-md-3'><%= f.label :long_description %> <%= f.text_area :long_description %></div>
+		  </div>
+			<div class= 'col-md-4'></div>
+			<div class= 'col-md-1'></div>
+			<div class= 'col-md-3'>SKILLS
+				<ul>
+    		<% Skill.all.each do |skill| %>
+		      <li>
+		        <%= check_box_tag 'skill_ids[]', skill.id %>
+		        <%= label_tag skill.name %>
+		      </li>
+    		<% end %>
+  			</ul>
+			</div>
+		</div>
 
 
-		  <div class= 'col-md-4'></div><div class= 'col-md-3'><%= f.submit "Create" %></div></div>
+		  <div class= 'col-md-4'></div><div class= 'col-md-3'>
+		  <%= f.submit "Create" %></div></div>
 		<% end %>
 
 		<div class= 'col-md-4'></div><div class= 'col-md-3'>
-			<%= link_to "Back", projects_path %></div></div>
+			<%= link_to "Back", projects_path  %></div></div>
 	</div>
 </table>

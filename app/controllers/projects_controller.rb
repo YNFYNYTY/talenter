@@ -12,15 +12,17 @@ class ProjectsController < ApplicationController
 
 	def new
     @project = Project.new
-    @skills = Skill.all
  	end
 
 	def create
 		@project = Project.new(project_params)
-		@skill = Skill.find(params[:project][:skills])
+		params[:skill_ids]
+		skill_ids_arr = params[:skill_ids]
 		if @project.save
-			@project.skills << @skill
-				redirect_to projects_path notice: 'Project was successfully created.'
+			skill_ids_arr.each do |skill_id|
+					@project.skills << Skill.find(skill_id)
+			end
+			redirect_to projects_path notice: 'Project was successfully created.'
 		else
 			 render 'index'
 		end
@@ -56,7 +58,7 @@ private
  	end
 
  	def skill_params
-      params[:skill].permit(:name, :skill_id)
+      params[:skill].permit(:name)
  	end
 
 end
