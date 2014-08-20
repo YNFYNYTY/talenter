@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
 			end
 			redirect_to projects_path
 		else
-			 render 'index'
+			 render 'error'
 		end
 	end
 
@@ -38,9 +38,11 @@ class ProjectsController < ApplicationController
 		skill_ids_arr = params[:skill_ids]
 		if @project && @project.update(project_params)
 			skill_ids_arr.each do |skill_id|
-			@project.skills << Skill.find(skill_id)
-		end
+				if not @project.skills.includes(Skill.find(skill_id))
+					@project.skills << Skill.find(skill_id)
+				end
 			redirect_to projects_path
+		end
 		else
 			render 'edit'
 		end
@@ -67,10 +69,3 @@ private
  	end
 
 end
-
-
-
-
-
-
-

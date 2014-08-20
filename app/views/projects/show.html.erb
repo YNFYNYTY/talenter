@@ -2,19 +2,21 @@
 <div class="table-responsive">
 	<table class='table table-hover'>
 		<div class='row'>
-			<div class= 'col-md-3'></div><div class= 'col-md-3'><h1><%= @project.name %></h1></div></div>
+			<div class= 'col-md-3 col-md-offset-1'><h1><%= @project.name %></h1></div></div>
 		<div class= 'row'>
-			<div class= 'col-md-3'></div><div class= 'col-md-3'><h3><%= @project.description %></h3></div></div>
+			<div class= 'col-md-3 col-md-offset-1'><h3><%= @project.description %></h3></div></div>
 		<div class= 'row'>
-			<div class= 'col-md-3'></div><div class= 'col-md-3'><h3><%= @project.long_description%></h3></div></div>
-		<div class= 'col-md-3'></div><div class= 'col-md-3'><p>
+			<div class= 'col-md-3 col-md-offset-1'><h3><%= @project.long_description%></h3></div></div>
+		<div class= 'col-md-3 col-md-offset-1'>
 				<ul>
 				<% @project.skills.each do |project_skill| %>
 				<li><%= project_skill.name %></li>
 				<% end %>
 				</ul>
-			</p></div></div>
+			</div>
+		<div class= 'col-md-3 col-md-offset-1'>
+			<%= link_to "Back", projects_path  %></div></div>
+		</div>
+
 	</table>
 </div>
-
-
