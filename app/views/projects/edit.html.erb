@@ -2,6 +2,14 @@
   <%= f.label :name %> <%= f.text_field :name %><br/>
   <%= f.label :description %> <%= f.text_area :description %></br>
    <%= f.label :long_description %> <%= f.text_area :long_description %>
+   <ul>
+		<% Skill.all.each do |skill| %>
+      <li>
+        <%= check_box_tag 'skill_ids[]', skill.id %>
+        <%= label_tag skill.name %>
+      </li>
+		<% end %>
+	</ul>
   <%= f.submit "EDIT" %>
 <% end %>
 <button id="back-button">

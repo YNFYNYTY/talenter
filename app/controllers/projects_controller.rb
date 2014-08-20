@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
 			skill_ids_arr.each do |skill_id|
 					@project.skills << Skill.find(skill_id)
 			end
-			redirect_to projects_path notice: 'Project was successfully created.'
+			redirect_to projects_path
 		else
 			 render 'index'
 		end
@@ -34,8 +34,13 @@ class ProjectsController < ApplicationController
 
 	def update
 		@project = Project.find(params[:id])
+		params[:skill_ids]
+		skill_ids_arr = params[:skill_ids]
 		if @project && @project.update(project_params)
-			redirect_to projects_path , notice: 'Project was successfully updated'
+			skill_ids_arr.each do |skill_id|
+			@project.skills << Skill.find(skill_id)
+		end
+			redirect_to projects_path
 		else
 			render 'edit'
 		end
