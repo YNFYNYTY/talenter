@@ -1,3 +1,4 @@
+require "pry"
 class ProjectsController < ApplicationController
 	def  index
 		 @projects = Project.all
@@ -12,6 +13,7 @@ class ProjectsController < ApplicationController
 
 	def new
     @project = Project.new
+    @project.steps.build
  	end
 
 	def create
@@ -61,7 +63,7 @@ class ProjectsController < ApplicationController
 private
 
 	def project_params
-      params[:project].permit(:name, :description, :long_description)
+      params.require(:project).permit(:name, :description, :long_description, steps_attributes:[:id, :project_id, :name, :description])
  	end
 
  	def skill_params

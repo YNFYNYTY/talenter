@@ -3,4 +3,5 @@ class Project < ActiveRecord::Base
 	has_many :steps
 	validates :name,   presence: true
 	validates :description,   presence: true
+	accepts_nested_attributes_for :steps
 end

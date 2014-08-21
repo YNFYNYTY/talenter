@@ -1,10 +1,10 @@
-<h1>Create new project asshole</h1>
+<h1>Create new project asshole TEST</h1>
 <table class='table table-hover'>
 	<div class = 'row'>
 		<%= form_for @project do |f| %>
 		<div class = 'row'>
 		  <div class= 'col-md-4'></div>
-		  <div class= 'col-md-3'><%= f.label :name %> <%= f.text_field :name %><br/>
+		  <div class= 'col-md-3'><%= f.label :name %><%= f.text_field :name %><br/>
 		  </div>
 		</div>
 		  <div class= 'col-md-4'></div>
@@ -25,6 +25,12 @@
 		        <%= label_tag skill.name %>
 		      </li>
     		<% end %>
+  			</ul>
+  			<ul>
+  			<%= f.fields_for :steps do |s| %>
+  				<li><%= s.label :name %> <%= s.text_area :name %></li>
+  				<li><%= s.label :description %> <%= s.text_area :description %></li>
+  			<% end %>
   			</ul>
 			</div>
 		</div>
