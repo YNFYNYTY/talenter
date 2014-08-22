@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true, format: /\S+@\S+\.\S+/
   validates :password, length: { minimum: 4 }, on: :create
   validates :password, confirmation: true
-  validate  :validate_roles
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end
