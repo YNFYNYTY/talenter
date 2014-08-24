@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140822123502) do
     t.integer "skill_id"
   end
 
-  create_table "relation_projects_users", force: true do |t|
+  create_table "projects_users", force: true do |t|
     t.integer "project_id"
     t.integer "user_id"
   end
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140822123502) do
   end
 
   create_table "steps", force: true do |t|
-    t.integer  "project_id"
+    t.integer  "project_id",  null: false
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

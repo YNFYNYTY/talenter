@@ -1,8 +1,11 @@
-require "pry"
 class ProjectsController < ApplicationController
 	def  index
-		 @projects = Project.all
-		 @skills = Skill.all
+		if user_signed_in?
+			@projects = current_user.projects
+		else
+		@projects = Project.all
+		end
+		@skills = Skill.all
 		render 'home'
 	end
 
@@ -21,8 +24,9 @@ class ProjectsController < ApplicationController
 		params[:skill_ids]
 		skill_ids_arr = params[:skill_ids]
 		if @project.save
+			current_user.projects << @project
 			skill_ids_arr.each do |skill_id|
-					@project.skills << Skill.find(skill_id)
+			@project.skills << Skill.find(skill_id)
 			end
 			redirect_to projects_path
 		else
@@ -30,21 +34,23 @@ class ProjectsController < ApplicationController
 		end
 	end
 
+
 	def edit
 		@project = Project.find(params[:id])
 	end
 
 	def update
 		@project = Project.find(params[:id])
-		params[:skill_ids]
 		skill_ids_arr = params[:skill_ids]
 		if @project && @project.update(project_params)
 			skill_ids_arr.each do |skill_id|
-				if not @project.skills.includes(Skill.find(skill_id))
+				if  !@project.skills.include? (Skill.find(skill_id))
 					@project.skills << Skill.find(skill_id)
 				end
+
+			end
+			# redirect_to(:action => "index") and return
 			redirect_to projects_path
-		end
 		else
 			render 'edit'
 		end
@@ -67,7 +73,7 @@ private
  	end
 
  	def skill_params
-      params[:skill].permit(:name)
+      params.require(:skill).permit(:name, :id)
  	end
 
 end
