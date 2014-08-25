@@ -21,12 +21,14 @@ class ProjectsController < ApplicationController
 
 	def create
 		@project = Project.new(project_params)
-		params[:skill_ids]
 		skill_ids_arr = params[:skill_ids]
 		if @project.save
+			(step_params[:steps] || []).each do |step|
+				@project.steps << Step.new(step)
+			end
 			current_user.projects << @project
 			skill_ids_arr.each do |skill_id|
-			@project.skills << Skill.find(skill_id)
+				@project.skills << Skill.find(skill_id)
 			end
 			redirect_to projects_path
 		else
@@ -41,15 +43,16 @@ class ProjectsController < ApplicationController
 
 	def update
 		@project = Project.find(params[:id])
-		skill_ids_arr = params[:skill_ids]
-		if @project && @project.update(project_params)
-			skill_ids_arr.each do |skill_id|
-				if  !@project.skills.include? (Skill.find(skill_id))
-					@project.skills << Skill.find(skill_id)
-				end
-
+		skill_ids = params[:skill_ids] || []
+			if @project && @project.update(project_params)
+				(step_params[:steps] || []).each do |step|
+					if step[:id]
+						Step.find(step[:id]).update_attributes(step)
+					else
+						@project.steps << Step.new(step)
+					end
 			end
-			# redirect_to(:action => "index") and return
+			@project.skill_ids = skill_ids
 			redirect_to projects_path
 		else
 			render 'edit'
@@ -69,7 +72,11 @@ class ProjectsController < ApplicationController
 private
 
 	def project_params
-      params.require(:project).permit(:name, :description, :long_description, steps_attributes:[:id, :project_id, :name, :description])
+      params.require(:project).permit(:name, :description, :long_description)
+ 	end
+
+ 	def step_params
+  	params.permit(steps: [:name, :description, :id])
  	end
 
  	def skill_params

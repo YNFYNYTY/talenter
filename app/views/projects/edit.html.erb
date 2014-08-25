@@ -5,13 +5,27 @@
    <ul>
 		<% Skill.all.each do |skill| %>
       <li>
-        <%= check_box_tag 'skill_ids[]', skill.id %>
+        <%= check_box_tag 'skill_ids[]', skill.id, @project.skills.include?(skill) %>
         <%= label_tag skill.name %>
       </li>
 		<% end %>
 	</ul>
+  <ul>
+   <% @project.steps.each do |step| %>
+   <li>
+      <input name='steps[][id]' type ='hidden' value= '<%= step.id %>'/>
+      <label>Name</label>
+      <input name='steps[][name]' value= '<%= step.name %>'/>
+      <label>Description</label>
+      <textarea name='steps[][description]'><%= step.description %></textarea>
+   </li>
+   <% end %>
+  </ul>
   <%= f.submit "EDIT" %>
 <% end %>
 <button id="back-button">
 	<%= link_to "Back", projects_path %>
 </button>
+
+
+

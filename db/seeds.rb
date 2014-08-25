@@ -18,8 +18,8 @@ Project.create(name: 'Furniture', description: 'Prototipe of future Furniture',
 Project.create(name: 'Proyetor', description: 'Prototipe of future Proyetor',
 	long_description: 'This is the long chapa of the Proyector')
 Skill.create(name: 'Designer')
-Skill.create(name: 'Lumberjack')
-Skill.create(name: 'Porn Actress')
 Skill.create(name: 'Engineer')
-Skill.create(name: 'Combar Pilot')
+Skill.create(name: 'Developer')
+Skill.create(name: 'Layer')
+Skill.create(name: 'PR')
 

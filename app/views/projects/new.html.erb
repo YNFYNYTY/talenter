@@ -18,19 +18,29 @@
 			<div class= 'col-md-4'></div>
 			<div class= 'col-md-1'></div>
 			<div class= 'col-md-3'>SKILLS
-				<ul>
+				<div class=''>
     		<% Skill.all.each do |skill| %>
 		      <li>
 		        <%= check_box_tag 'skill_ids[]', skill.id %>
 		        <%= label_tag skill.name %>
+		        <div class = 'avatar_skill'><%= image_tag("/assets/#{skill.name}.png") %></div>
 		      </li>
     		<% end %>
   			</ul>
   			<ul>
-  			<%= f.fields_for :steps do |s| %>
-  				<li><%= s.label :name %> <%= s.text_area :name %></li>
-  				<li><%= s.label :description %> <%= s.text_area :description %></li>
-  			<% end %>
+  				<li>
+  					<label>Name</label>
+  					<input name='steps[][name]'/>>
+  					<label>Description</label>
+  					<textarea name='steps[][description]'></textarea>
+  				</li>
+  				<!-- TODO: Delete this after adding jquery-->
+  				<li>
+  					<label>Name</label>
+  					<input name='steps[][name]'/>
+  					<label>Description</label>
+  					<textarea name='steps[][description]'></textarea>
+  				</li>
   			</ul>
 			</div>
 		</div>
