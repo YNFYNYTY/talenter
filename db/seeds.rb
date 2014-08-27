@@ -22,4 +22,5 @@ Skill.create(name: 'Engineer')
 Skill.create(name: 'Developer')
 Skill.create(name: 'Layer')
 Skill.create(name: 'PR')
+Skill.create(name: 'Architect')
 

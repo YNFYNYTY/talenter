@@ -3,7 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .container_for_registration {
-		text-align: center;
+
+	text-align: center;
 	}
 body{
 	background-color: #20201E;
@@ -23,27 +24,77 @@ font-family: Arial, Helvetica, sans-serif;
 #logotext {
   height: 20px;
 }
-.email label{
-	margin-top:100px;
-	height:35px;
+.email{
+	margin-top:120px;
 	font-size:12px;
-	color: #428bca;
+	color: #dadad9;
 	font-family: Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 }
-.password label{
-	height:35px;
+.password {
 	font-size:12px;
-	color: #428bca;
+	color: #dadad9;
 	font-family: Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
-	margin-top:20px;
+	margin-top:30px;
 }
-.password_confirmation label {
-	height:35px;
+.password2 {
 	font-size:12px;
-	color: #428bca;
+	color: #dadad9;
 	font-family: Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
-	margin-top:20px;
+	margin-top:30px;
+}
+.password_confirmation {
+	font-size:12px;
+	color: #dadad9;
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	margin-top:30px;
+}
+.current_user_email {
+	color: #dadad9;
+}
+.navbar {
+	border: 0px;
+	border-radius:0;
+}
+.remember_me {
+	font-size:14px;
+	color: #dadad9;
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	margin-top:30px;
+}
+.submit {
+	background-color : transparent;
+	color: #1d70b7;
+}
+.avatar_skill img{
+	width:50px;
+}
+
+.submit:hover {
+	color: #9d9c9c;
+}
+.new_projects_name {
+	font-size:12px;
+	color: #dadad9;
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	margin-top:30px;
+}
+.new_proyect_description{
+	font-size:12px;
+	color: #1d70b7;
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	margin-top:30px;
+}
+.new_proyect_long_description {
+	font-size:12px;
+	color: #1d70b7;
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	margin-top:30px;
 }

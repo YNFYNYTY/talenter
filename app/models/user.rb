@@ -9,5 +9,7 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  IMAGES = %w(avatar1 avatar2 avatar3)
 end
 
