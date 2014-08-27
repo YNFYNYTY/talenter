@@ -9,12 +9,6 @@ class ProjectsController < ApplicationController
 		render 'home'
 	end
 
-	# def showall
-	# 	@project = Project.all
-	# 	@skills = Skill.all
-	# 	render 'showall'
-	# end
-
 	def show
 		@project = Project.find(params[:id])
 		render 'show'

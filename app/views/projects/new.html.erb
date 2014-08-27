@@ -1,26 +1,31 @@
 <div class='container_for_registration'>
-		<%= form_for @project do |f| %>
-			<div class='new_proyect_name'>
+	<%= form_for @project do |f| %>
+		<div class='new_proyect_name'>
 			<%= f.label :name %>
 			<%= f.text_field :name %><br/>
-		  </div>
-		  <div class = 'new_proyect_description'>
-		  <%= f.label :description %>
-		  <%= f.text_area :description %>
-			</div>
-			<div class= 'new_proyect_long_description'>
-		  <%= f.label :long_description %> <%= f.text_area :long_description %></div>
-		  </div>
-    		<% Skill.all.each do |skill| %>
-		      <li>
-		        <%= check_box_tag 'skill_ids[]', skill.id %>
-		        <%= label_tag skill.name %>
-		        <div class = 'avatar_skill'>
-		        	<%= image_tag("/assets/#{skill.name}.png") %>
-		        </div>
-		      </li>
-    		<% end %>
-  			</ul>
+	  </div>
+	  <div class = 'new_proyect_description'>
+	  	<%= f.label :description %>
+	  	<%= f.text_area :description %><br/>
+		</div>
+		<div class= 'new_proyect_long_description'>
+	  	<%= f.label :long_description %>
+	  	<%= f.text_area :long_description %>
+		</div>
+</div>
+
+<div class = 'skills_container'>
+	<% Skill.all.each do |skill| %>
+    <div class='skills_box'>
+      <%= check_box_tag 'skill_ids[]', skill.id %>
+      <%= label_tag skill.name %>
+      <div class = 'avatar_skill'>
+      	<%= image_tag("/assets/#{skill.name}.png") %>
+     	</div>
+    </div>
+	<% end %>
+</div>
+
   			<ul id='steps'>
   				<li>
   					<label>Name</label>
@@ -41,6 +46,20 @@
 			<%= link_to "Back", projects_path  %></div></div>
 	</div>
 </table>
+
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img data-src="holder.js/300x300" alt="...">
+      <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <script type ='text/javascript'>
