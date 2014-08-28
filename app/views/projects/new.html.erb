@@ -26,27 +26,31 @@
     </div>
 	<% end %>
 </div>
-  			<!-- <ul id='steps' class= 'steps_container'>
+			<div class='steps_text'>EXPLAIN THE STEPS OF YOUR PROJECT</div>
+  			<ul id='steps' class= 'steps_container'>
   				<li class= 'steps_box'>
-  					<label> Name </label>
-  					<input name='steps[][name]'/>
-  					<label> Description </label>
-  					<textarea name='steps[][description]'></textarea>
+  					<label>STEP 1</label><br/>
+  					<input name='steps[][name]'/><br/>
+  					<label>Description</label><br/>
+  					<textarea name='steps[][description]'>
+  					</textarea><br/>
   				</li>
   			</ul>
-				<button id = 'add_step'>Add new step</button>
-				<button id = 'remove_step'>Remove new step</button> -->
-
+  			<div class= 'add_remove_buttons'>
+				<button  id = 'add_step'>Add new step</button>
+				<button  id = 'remove_step'>Remove new step</button>
+			</div>
+<div class= 'buttons_create_and_back'>
 	<div class= 'create_button'>
-	  <%= f.submit "Create" %>
+	  <%= f.submit "Create", :class => 'button_new' %>
 	</div>
 		<% end %>
 	<div class= 'back_button'>
-		<%= link_to "Back", projects_path  %></div>
+			<button class= 'button_new'><%= link_to "BACK", projects_path, :class => 'btn2' %><button></div>
 	</div>
 </table>
 
-
+</div>
 
 <script type ='text/javascript'>
 	$(function(){
@@ -54,7 +58,13 @@
 			var $button = $(this),
 			    $ul = $('#steps'),
 			    $li = $ul.find('li').eq(0);
-			$li.clone().appendTo($ul);
+			var newLi = $li.clone();
+			newLi.appendTo($ul);
+			var i  = $('li.steps_box').length;
+			var myI = i-1;
+			console.log(i);
+			var me = $('li.steps_box:eq(' + myI + ') label:first-child').text('STEP ' + i  );
+			// console.log(me);
 			return false;
 		});
 	});
@@ -65,7 +75,7 @@
 		$('#remove_step').click( function(){
 			var $button = $(this),
 			    $ul = $('#steps'),
-			    $li = $ul.find('li').eq(1);
+			    $li = $ul.find('li').last();
 			$li.remove();
 			return false;
 		});

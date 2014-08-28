@@ -1,15 +1,31 @@
+<div class='container_for_registration'>
 <%= form_for @project do |f| %>
-  <%= f.label :name %> <%= f.text_field :name %><br/>
-  <%= f.label :description %> <%= f.text_area :description %></br>
-   <%= f.label :long_description %> <%= f.text_area :long_description %>
-   <ul>
-		<% Skill.all.each do |skill| %>
-      <li>
-        <%= check_box_tag 'skill_ids[]', skill.id, @project.skills.include?(skill) %>
-        <%= label_tag skill.name %>
-      </li>
-		<% end %>
-	</ul>
+  <div class='new_proyect_name'>
+    <%= f.label :'WHAT DO YO WANT TO BUILD ?' %><br/>
+    <%= f.text_field :name , :size => ('55x30') %><br/>
+  </div>
+  <div class = 'new_proyect_description'>
+    <%= f.label  :'EXPLAIN THE IDEA' %><br/>
+    <%= f.text_area :description , :size => ('55x2')%><br/>
+  </div>
+  <div class= 'new_proyect_long_description'>
+    <%= f.label :'AND THE DETAILS' %><br/>
+    <%= f.text_area :long_description, :size => ('55x4') %>
+  </div>
+  <br/>
+    <div class= 'skills_title'>SELECT PEOPLE YOU NEED<br/> TO MAKE THE PROJECT</div>
+    <br/>
+		<div class = 'skills_container'>
+      <% Skill.all.each do |skill| %>
+        <div class='skills_box'>
+          <%= check_box_tag 'skill_ids[]', skill.id %>
+          <%= label_tag skill.name %>
+          <div class = 'avatar_skill'>
+            <%= image_tag("/assets/#{skill.name}.png") %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <ul>
    <% @project.steps.each do |step| %>
    <li>
@@ -26,6 +42,3 @@
 <button id="back-button">
 	<%= link_to "Back", projects_path %>
 </button>
-
-
-
