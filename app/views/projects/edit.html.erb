@@ -18,7 +18,11 @@
 		<div class = 'skills_container'>
       <% Skill.all.each do |skill| %>
         <div class='skills_box'>
-          <%= check_box_tag 'skill_ids[]', skill.id %>
+          <% if @project.skills.include?(skill) %>
+            <%= check_box_tag('skill_ids[]', skill.id, checked = true)%>
+          <% else %>
+            <%= check_box_tag 'skill_ids[]', skill.id%>
+          <% end %>
           <%= label_tag skill.name %>
           <div class = 'avatar_skill'>
             <%= image_tag("/assets/#{skill.name}.png") %>
