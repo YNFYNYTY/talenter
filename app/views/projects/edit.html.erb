@@ -40,9 +40,7 @@
       <textarea name='steps[][description]'><%= step.description %></textarea>
    </li>
    <% end %>
-  </ul>
-  <%= f.submit "EDIT" %>
+  </ul><br/>
+  <%= f.submit "Edit", :class => 'btn1'  %><br/>
 <% end %>
-<button id="back-button">
-	<%= link_to "Back", projects_path %>
-</button>
+	<%= link_to "Back", projects_path , :class => 'btn1' %>

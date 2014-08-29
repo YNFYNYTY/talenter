@@ -37,16 +37,16 @@
   				</li>
   			</ul>
   			<div class= 'add_remove_buttons'>
-				<button  id = 'add_step'>Add new step</button>
-				<button  id = 'remove_step'>Remove new step</button>
+				<button class='btn1' id = 'add_step'>ADD STEP</button>
+				<button class='btn1' id = 'remove_step'>REMOVE STEP</button>
 			</div>
 <div class= 'buttons_create_and_back'>
 	<div class= 'create_button'>
-	  <%= f.submit "Create", :class => 'button_new' %>
+	  <%= f.submit "Create", :class => 'btn1' %>
 	</div>
 		<% end %>
 	<div class= 'back_button'>
-			<button class= 'button_new'><%= link_to "BACK", projects_path, :class => 'btn2' %><button></div>
+			<%= link_to "BACK", projects_path, :class => 'btn1' %>
 	</div>
 </table>
 
@@ -64,7 +64,6 @@
 			var myI = i-1;
 			console.log(i);
 			var me = $('li.steps_box:eq(' + myI + ') label:first-child').text('STEP ' + i  );
-			// console.log(me);
 			return false;
 		});
 	});

@@ -7,6 +7,15 @@
   	<%= f.email_field :email, autofocus: true %>
   </div>
 
+  <div class='profile_container'>
+    <div class = 'avatar_skill'>
+      <% User::IMAGES.each do |image| %>
+      <%= image_tag("/assets/avatars/#{image}.png") %>
+      <%= f.radio_button(:image, image) %>
+    <% end %>
+   </div>
+ </div>
+
   <div class='password'><%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>

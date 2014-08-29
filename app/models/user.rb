@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  IMAGES = %w(avatar1 avatar2 avatar3)
+  IMAGES = %w(avatar1 avatar2 avatar3 avatar4 avatar5 avatar6 avatar7 avatar8 avatar9 avatar10)
 end
 

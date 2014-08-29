@@ -79,21 +79,21 @@ font-family: Arial, Helvetica, sans-serif;
 }
 .new_proyect_name {
 	font-size:12px;
-	color: #dadad9;
+	color: #A5A5A5;
 	font-family: Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	margin-top:30px;
 }
 .new_proyect_description{
 	font-size:12px;
-	color: #dadad9;
+	color: #A5A5A5;
 	font-family: Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	margin-top:30px;
 }
 .new_proyect_long_description {
 	font-size:12px;
-	color: #dadad9;
+	color: #A5A5A5;
 	font-family: Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	margin-top:30px;
@@ -132,6 +132,11 @@ font-family: Arial, Helvetica, sans-serif;
 	border:none;
 	color: #dadad9;
 }
+#remove_step {
+	background-color:transparent;
+	border:none;
+	color: #dadad9;
+}
 .back_button {
 	text-align:center;
 	background-color:transparent;
@@ -144,6 +149,8 @@ font-family: Arial, Helvetica, sans-serif;
 }
 .create_button {
 	text-align:center;
+	background-color:transparent;
+	border:none;
 }
 .projects_container {
 	margin-right:10px;
@@ -161,9 +168,32 @@ font-family: Arial, Helvetica, sans-serif;
 	margin-right:5%;
 
 }
+
 .show_project_name {
-	font-size:16px;
-	color:#9d9c9c;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align:center;
+	font-size:30px;
+	color:#ececec;
+	margin-top:50px;
+	margin-bottom:50px;
+}
+.show_project_description{
+	margin-top:50px;
+	font-size:18px;
+	color:#ececec;
+}
+.show_project_long_description{
+	margin-top:50px;
+	font-size:15px;
+	color:#ececec;
+}
+.show_skills_container {
+	margin-right:5%;
+	margin-top:50px;
+	margin-left:5%;
+	text-align:center;
+	font-size:15px;
+	color:#ececec;
 }
 .btn1 {
   background: #8a8a8a;
@@ -187,7 +217,8 @@ font-family: Arial, Helvetica, sans-serif;
 	text-align:center;
 }
 .buttons_create_and_back {
-	margin-top:300px;
+	margin-top:100px;
+	display:inline-block;
 }
 .button_new {
 	background-color:#000000;
@@ -195,7 +226,10 @@ font-family: Arial, Helvetica, sans-serif;
 	box-shadow: 0px;
 	color: white;
 }
-
+.show_image {
+	height:100%;
+	width:100%;
+}
 .button_new a {
 	color: white;
 }
@@ -214,4 +248,15 @@ ul {
 }
 .add_remove_buttons {
 	text-align:center;
+}
+.show_avatar_skill img{
+	height:100px;
+		outline:1px solid red;
+
+}
+.profile_container {
+	margin-top:50px;
+}
+.profile_navbar_image img {
+	height:50px;
 }
